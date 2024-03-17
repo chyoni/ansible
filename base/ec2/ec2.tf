@@ -26,6 +26,8 @@ data "aws_ami" "amazon" {
     name   = "name"
     values = ["amzn2-ami-hvm*"]
   }
+
+  owners = ["amazon"]
 }
 
 locals {
