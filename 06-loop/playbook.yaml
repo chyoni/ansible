@@ -1,0 +1,58 @@
+- name: Playbook
+  hosts: ubuntu
+  become: true
+  vars:
+    tags:
+      Name: "Debug"
+      Environment: "Test"
+      Owner: "cwchoiit"
+    users:
+      - name: jan
+        shell: /bin/bash
+      - name: ali
+        shell: /bin/sh
+      - name: cow
+        shell: /bin/bash
+      - name: hazard
+        shell: /bin/sh
+      - name: june
+        shell: /bin/bash
+  tasks:
+    # - name: "Create groups"
+    #   group:
+    #     name: "{{ item }}" # 반복문에서 사용가능한 문법. 하단 with_items의 하나하나를 가르킨다.
+    #     state: "present"
+    #   with_items: # 옛날 문법
+    #     - backend
+    #     - frontend
+    #     - devops
+    # - name: "Create users"
+    #   user:
+    #     name: "{{ item }}"
+    #     comment: "ansible study"
+    #     state: "present"
+    #   loop:
+    #     - john
+    #     - alice
+    #     - cloud
+    #     - henry
+    #     - jeremy
+    #     - may
+    # - name: "Create a users"
+    #   user:
+    #     name: "{{ item }}"
+    #     comment: "loop vars"
+    #     state: "present"
+    #   loop: "{{ users }}"
+    # - name: "Debug data"
+    #   debug:
+    #     msg: "{{ item.key }}: {{ item.value }}"
+    #   loop: "{{ tags | dict2items }}"
+
+    - name: "Create a user"
+      user:
+        name: "{{ item.name }}"
+        shell: "{{ item.shell }}"
+        comment: "cwchoiit-ansible"
+        state: "present"
+      loop: "{{ users }}"
