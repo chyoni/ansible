@@ -1,0 +1,17 @@
+- name: Playbook
+  hosts: ubuntu
+  become: true
+  # vars:
+  #   user_name: "cwchoiit"
+  #   user_comment: "from playbook vars"
+  #   user_shell: /bin/bash
+  #   user_uid: "7777"
+  vars_files:
+    - vars.yaml
+  tasks:
+    - name: "Create a user"
+      user:
+        name: "{{ user_name }}"
+        comment: "{{ user_comment }}"
+        shell: "{{ user_shell }}"
+        uid: "{{ user_uid }}"
