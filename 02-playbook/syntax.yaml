@@ -1,7 +1,7 @@
 ---
 # This is Ansible Playbook
 
-# Playbook: YAML로 정의. 순서대로 정렬된 플레이(작업 목록) 절차.
+# Playbook: YAML로 정의. 순서대로 정렬된 플레이(작업 목록: Play) 절차.
 # Play: 작업 목록(Tasks). 특정 호스트 목록에 대하여 수행
 # Task: Ansible의 수행 단위. 애드혹 명령어는 한번에 단일 작업 수행.
 # Module: Ansible이 실행하는 코드 단위. 작업에서 모듈을 호출함.
